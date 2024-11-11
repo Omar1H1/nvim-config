@@ -3,6 +3,10 @@ return {
   opts = {
     ensure_isntalled = {
       "gopls",
+      "typescript-language-server",
+      "tailwindcss-language-server",
+      "eslint-lsp",
+      "prettierd",
     },
   },
 }

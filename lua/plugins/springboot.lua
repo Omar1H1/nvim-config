@@ -9,7 +9,7 @@ return {
         local springboot_nvim = require("springboot-nvim")
 
         -- set a vim motion to <Space> + <Shift>J + r to run the spring boot project in a vim terminal
-        vim.keymap.set('n', '<leader>jx', springboot_nvim.boot_run, {desc = "[J]ava [R]un Spring Boot"})
+        vim.keymap.set('n', '<leader>Jr', springboot_nvim.boot_run, {desc = "[J]ava [R]un Spring Boot"})
         -- set a vim motion to <Space> + <Shift>J + c to open the generate class ui to create a class
         vim.keymap.set('n', '<leader>Jc', springboot_nvim.generate_class, {desc = "[J]ava Create [C]lass"})
         -- set a vim motion to <Space> + <Shift>J + i to open the generate interface ui to create an interface

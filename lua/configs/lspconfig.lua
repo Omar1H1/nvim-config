@@ -40,3 +40,23 @@ lspconfig.gopls.setup {
   filetypes ={"go", "gomod", "gowork", "gotmpl"},
 }
 
+lspconfig.ts_ls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.tailwindcss.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+lspconfig.eslint.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+
+lspconfig.jdtls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
