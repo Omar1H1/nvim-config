@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 vim.opt.relativenumber = true
+vim.opt.termguicolors = true
 
 local lazy_config = require "configs.lazy"
 
@@ -23,18 +24,36 @@ require("lazy").setup({
     branch = "v2.5",
     import = "nvchad.plugins",
   },
-
   { import = "plugins" },
+  { "neovim/nvim-lspconfig" },  -- Ensure lspconfig is included
 }, lazy_config)
 
--- Nvim-Java
---
---
---
---{'nvim-java/nvim-java'}
---require('java').setup()
 
---require('lspconfig').jdtls.setup({})
+-- Nvim-Java
+local lspconfig = require('lspconfig')
+
+-- Configure jdtls with Lombok
+local workspace_dir = os.getenv("HOME") .. "/path/to/your/workspace"  -- Change this to your actual workspace path
+
+lspconfig.jdtls.setup {
+    cmd = {
+        'java',
+        '-Declipse.application=org.eclipse.jdt.ls.core.id1',
+        '-Dosgi.bundles.defaultStartLevel=4',
+        '-Declipse.product=org.eclipse.jdt.ls.core.product',
+        '-Dlog.protocol=true',
+        '-Dlog.level=ALL',
+        '-Xms4g',
+        '--add-modules=ALL-SYSTEM',
+        '--add-opens', 'java.base/java.util=ALL-UNNAMED',
+        '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
+        '-javaagent:' .. os.getenv("HOME") .. '/Coding/libs/lombok.jar',
+        '-jar', os.getenv("HOME") .. '/Coding/libs/jdt/plugins/org.eclipse.equinox.launcher.jar',
+        '-configuration', os.getenv("HOME") .. '/Coding/libs/jdt/config_linux',
+        '-data', workspace_dir
+    },
+    -- Add any additional configuration options here
+}
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")
@@ -52,3 +71,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd("Nvdash")
 	end,
 })
+
+vim.g.python3_host_prog="/usr/bin/python3"
