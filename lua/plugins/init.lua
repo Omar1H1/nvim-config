@@ -87,15 +87,34 @@ return {
     config = function()
       require("crates").setup {
         completion = {
-          cmp = {
-            enabled = true
+            cmp = {
+              enabled = true
+            },
           },
-        },
-      }
-      require('cmp').setup.buffer({
-        sources = { { name = "crates" }}
-      })
-    end
-  },
+        }
+        require('cmp').setup.buffer({
+          sources = { { name = "crates" }}
+        })
+      end
+    },
+    {
+      "nvim-neotest/neotest",
+      dependencies = {
+        "nvim-neotest/nvim-nio",
+        "nvim-lua/plenary.nvim",
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-treesitter/nvim-treesitter",
+        "rcasia/neotest-java",
+      },
+      config = function()
+        require("neotest").setup({
+          adapters = {
+            require("neotest-java")({
+              -- Additional config here if needed
+            }),
+          },
+        })
+      end,
+    },
   }
 }
