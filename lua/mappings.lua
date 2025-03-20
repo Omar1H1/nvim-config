@@ -52,3 +52,12 @@ map({"i", "s"}, "<C-E>", function()
 		ls.change_choice(1)
 	end
 end, {silent = true})
+
+
+local neotest = require("neotest")
+
+map("n", "<leader>tt", function() neotest.run.run() end, { desc = "Run nearest test" })
+map("n", "<leader>tT", function() neotest.run.run(vim.fn.expand("%")) end, { desc = "Run all tests in file" })
+map("n", "<leader>to", function() neotest.output.open() end, { desc = "Show test output" })
+map("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle test summary" })
+map("n", "<leader>td", function() neotest.run.run({ strategy = "dap" }) end, { desc = "Debug test" })
