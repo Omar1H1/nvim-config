@@ -1,12 +1,14 @@
 return {
- "williamboman/mason.nvim",
+  "williamboman/mason.nvim",
   opts = {
     ensure_isntalled = {
       "gopls",
       "typescript-language-server",
       "tailwindcss-language-server",
       "eslint-lsp",
-      "prettierd"
+      "prettierd",
+      "markdown",
+      "markdown_inline"
     },
   },
 }

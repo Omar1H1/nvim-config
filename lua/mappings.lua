@@ -61,3 +61,7 @@ map("n", "<leader>tT", function() neotest.run.run(vim.fn.expand("%")) end, { des
 map("n", "<leader>to", function() neotest.output.open() end, { desc = "Show test output" })
 map("n", "<leader>ts", function() neotest.summary.toggle() end, { desc = "Toggle test summary" })
 map("n", "<leader>td", function() neotest.run.run({ strategy = "dap" }) end, { desc = "Debug test" })
+
+vim.keymap.set("n", "<leader>mr", ":RenderMarkdown<CR>", { desc = "Render Markdown" })
+vim.keymap.set("n", "<leader>md", ":DisableRenderMarkdown<CR>", { desc = "Disable Markdown Render" })
+
