@@ -38,6 +38,7 @@ map('v', '<leader>crc', "<Esc><Cmd>lua require('jdtls').extract_constant(true)<C
 map('v', '<leader>crm', "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", { desc = 'Extract Method' })
 
 
+map("n", "<Leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "LSP Code Action" })
 -- luaSnip
 
 

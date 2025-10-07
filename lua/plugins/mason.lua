@@ -3,6 +3,7 @@ return {
   opts = {
     ensure_isntalled = {
       "gopls",
+      "asm_lsp",
       "typescript-language-server",
       "tailwindcss-language-server",
       "eslint-lsp",
